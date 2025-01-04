@@ -41,17 +41,31 @@ def proposal_program():
                 ["Yes, absolutely! ❤️", "Of course, yes! 🌟", "I’d love to! 💕"]
             )
             
-            # Respond positively no matter the choice
             if choice:
-                st.success("🎉 Yay! You've made this moment unforgettable! ❤️")
+                # Display animated final page
+                st.markdown("---")
+                st.markdown(
+                    """
+                    <div style="text-align: center;">
+                        <h1 style="color: #FF69B4; font-size: 60px;">🎉 YES! 🎉</h1>
+                        <p style="font-size: 24px; color: #4CAF50;">
+                            Thank you for making this moment unforgettable! 💕
+                        </p>
+                        <div style="font-size: 18px; margin-top: 20px; color: #6A5ACD;">
+                            Let’s make every day as magical as this one! 🌟
+                        </div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+                st.balloons()
                 st.snow()
-    
-    # Footer with gratitude
-    st.write("---")
-    st.markdown(
-        "<div style='text-align: center;'>Thank you for sharing this special moment with me! 💕</div>", 
-        unsafe_allow_html=True
-    )
+                st.write("---")
+                st.write("💖 Thank you for being part of this special moment. 💖")
+                st.markdown(
+                    "<div style='text-align: center;'>Let's create a lifetime of beautiful memories together! 🥰</div>",
+                    unsafe_allow_html=True,
+                )
 
 # Run the program
 proposal_program()
