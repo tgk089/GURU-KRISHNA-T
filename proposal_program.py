@@ -1,49 +1,57 @@
 import streamlit as st
 
 def proposal_program():
-    # Title with emoji
+    # Title and Introduction
     st.title("💖 A Special Moment for You! 💖")
-    st.header("Welcome to a magical journey, just for you! 🌟")
-    st.write("Let's play a fun and interactive game together!")
+    st.header("Welcome to a magical journey! 🌟")
+    st.write("Let's have some fun together and create a memory you'll cherish forever.")
 
-    # Step 1: Ask for name
+    # Step 1: Ask for Name
     name = st.text_input("First, may I know your beautiful name? 💕")
     if name:
         st.success(f"Wow, {name}! Such a lovely name! ❤️")
 
-    # Step 2: Interactive questions with effects
-    st.write("Now, let me know more about your favorites:")
-    favorite_color = st.text_input("🎨 What’s your favorite color?")
-    dream_place = st.text_input("🌍 What’s your dream destination?")
-    favorite_flower = st.text_input("🌸 What’s your favorite flower?")
-    favorite_food = st.text_input("🍕 What’s your favorite food?")
+    # Step 2: Ask About Preferences
+    if name:
+        st.write("Now, let me learn more about your favorites!")
+        favorite_color = st.text_input("🎨 What’s your favorite color?")
+        dream_place = st.text_input("🌍 What’s your dream destination?")
+        favorite_flower = st.text_input("🌸 What’s your favorite flower?")
+        favorite_food = st.text_input("🍕 What’s your favorite food?")
 
-    # Step 3: Build the suspense
-    if st.button("✨ Create the Magical Moment ✨"):
-        if name and favorite_color and dream_place and favorite_flower and favorite_food:
-            st.balloons()  # Launch balloons to celebrate
-            st.write("💭 Imagine this scene:")
+    # Step 3: Proposal with Positive Choices
+    if name and favorite_color and dream_place and favorite_flower and favorite_food:
+        st.write("✨ Let's create a magical moment for you!")
+        
+        if st.button("💌 Begin the Journey 💌"):
+            st.balloons()
             st.markdown(f"""
             <div style="font-size: 20px; font-weight: bold; margin: 20px 0; color: #FF69B4;">
-            🌈 The sky is glowing <b>{favorite_color}</b>.
-            🏞️ We’re in <b>{dream_place}</b>, your dream destination.
-            🌺 Surrounding us are fragrant <b>{favorite_flower}s</b>.
-            🍽️ We’re enjoying a delicious meal of <b>{favorite_food}</b>.
+            🌈 Imagine a perfect day with the sky glowing {favorite_color}.
+            🏞️ We're in {dream_place}, surrounded by {favorite_flower}s.
+            🍽️ Sharing a delicious meal of {favorite_food}, I take your hand and say...
             </div>
             """, unsafe_allow_html=True)
+
+            st.markdown("## 💖 *Will you be my forever partner?* 💍")
             
-            st.write("And then, I take your hand, look into your eyes, and say...")
-
-            st.markdown("## 💖 *Will you be the sunshine of my life and my forever partner?* 💍")
-            st.success("🎉 Yay! You've made this moment unforgettable! ❤️")
-            st.snow()  # Add falling snow for a magical effect
-        else:
-            st.warning("Please fill in all the details to make this moment perfect! 😊")
-
-    # Footer with thank-you message
+            # Display only positive options
+            choice = st.radio(
+                "Choose your response:",
+                ["Yes, absolutely! ❤️", "Of course, yes! 🌟", "I’d love to! 💕"]
+            )
+            
+            # Respond positively no matter the choice
+            if choice:
+                st.success("🎉 Yay! You've made this moment unforgettable! ❤️")
+                st.snow()
+    
+    # Footer with gratitude
     st.write("---")
-    st.markdown("<div style='text-align: center;'>Thank you for sharing this special moment with me. 💕</div>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: center;'>Let’s make every day as magical as this one! 🌟</div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div style='text-align: center;'>Thank you for sharing this special moment with me! 💕</div>", 
+        unsafe_allow_html=True
+    )
 
 # Run the program
 proposal_program()
